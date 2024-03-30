@@ -6,7 +6,6 @@ import { deleteData } from '@/utils/fetchData';
 
 const DeleteProjectBtn = ({id, accessToken}: {id: string, accessToken: string}) => {
     const onDelete = () => {
-        console.log("click");
         deleteData({
           id: id,
           uri: "project", 

@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link'
-import React from 'react'
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 
 const CreateProjectBtn = () => {
   const onClick = () => {
@@ -11,7 +10,9 @@ const CreateProjectBtn = () => {
 
   return (
     <Button className='mb-10' onClick={onClick}>
-      Добавить проект
+      <Link href='/project/create'>
+        Добавить проект
+      </Link>
     </Button>
   )
 }
