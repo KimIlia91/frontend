@@ -7,7 +7,6 @@ export default function AdminLayout({
 }>) {
     return(
         <main>
-            {/* <Header /> */}
             {children}
         </main>
     )

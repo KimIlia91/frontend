@@ -2,7 +2,9 @@ import React from 'react'
 
 const CreateProjectPage = () => {
   return (
-    <div>Create Project Page</div>
+    <section className=' text-center'>
+      Create Project Page
+    </section>
   )
 }
 
