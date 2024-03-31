@@ -7,7 +7,7 @@ interface ProjectListProps {
 }
 
 const ProjectList = async({projects}: ProjectListProps) => {
-  console.log(projects)
+
   return (
     <div>  
       <CreateProjectBtn />
