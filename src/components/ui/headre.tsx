@@ -9,9 +9,8 @@ const Header = async() => {
         <header className="w-full h-20 flex justify-around top-0">
             <nav className="flex justify-around gap-28 items-center w-full">
                 <p className="font-bold text-4xl">Logo</p>
-                {
-                    session 
-                    ?<>
+                {session ?
+                    <>
                         <div className="flex gap-14">
                             <Link
                                 href="/project"
@@ -19,8 +18,7 @@ const Header = async() => {
                             >
                                 Проекты
                             </Link>
-                            {
-                                session?.user?.isAdmin ?
+                            {session?.user?.isAdmin ?
                                 <Link
                                     href="/admin/user"
                                     className="text-xl hover:underline hover:transition-all hover:duration-300"
