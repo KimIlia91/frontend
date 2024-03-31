@@ -32,8 +32,7 @@ const CardWrapper = ({
         <CardContent>
             {children}
         </CardContent>
-        {
-            showSocial && (
+        {showSocial && (
                 <CardFooter className='w-full'>
                     <SocialCard isPending={isPending} />
                 </CardFooter>
