@@ -45,7 +45,7 @@ const SelectUser = ({
         onRequest()
             .then((data) =>  data && setUsers(data))
     }, [])
-    console.log(users)
+
     return (
         <FormItem>
             <Select onValueChange={fieldOnChange} defaultValue={fieldValue}>
