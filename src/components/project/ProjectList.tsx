@@ -3,6 +3,7 @@ import Project from '@/types/models/ProjectModel';
 import { auth } from '@/auth';
 import { fetchData } from '@/utils/fetchData';
 import CreateProjectBtn from './CreateProjectBtn'
+import { getProjects } from '@/actions/getProjects';
 
 const ProjectList = async() => {
   const session = await auth();
@@ -10,11 +11,7 @@ const ProjectList = async() => {
   let data = undefined;
 
   if (session?.user.isAdmin) {
-    data = await fetchData<Project>({
-      uri: "project", 
-      method: "GET", 
-      accessToken: session?.user.accessToken,
-    });
+    data = await getProjects()
   }
 
   return (

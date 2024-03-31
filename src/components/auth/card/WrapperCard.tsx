@@ -10,6 +10,7 @@ import HeaderCard from '@/components/auth/card/HeaderCard';
 import SocialCard from '@/components/auth/card/SocialCard';
 
 interface CardWrapperProps {
+    isOpenModal?: boolean;
     children: React.ReactNode;
     headerLabel: string;
     showSocial?: boolean;
@@ -17,13 +18,14 @@ interface CardWrapperProps {
 }
 
 const CardWrapper = ({
+    isOpenModal = true,
     children,
     headerLabel,
     showSocial,
     isPending,
 }: CardWrapperProps) => {
   return (
-    <Card className='flex flex-col items-center'>
+    <Card className={`flex flex-col items-center ${isOpenModal ? 'block' : 'hidden'}`}>
         <CardHeader>
             <HeaderCard label={headerLabel} />
         </CardHeader>

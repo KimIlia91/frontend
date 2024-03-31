@@ -43,7 +43,7 @@ export const fetchDataById = async <T>({uri, method, accessToken}: FetchProps): 
   }
 }
 
-export const deleteData = async({id, uri, method, accessToken}: FetchProps): Promise<void> => {
+export const deleteData = async({id, uri, method, accessToken}: FetchProps): Promise<Response | undefined> => {
     try{
         const response = await fetch(`${BASE_URL}/${uri}/${id}`, {
             method: method,
@@ -54,18 +54,20 @@ export const deleteData = async({id, uri, method, accessToken}: FetchProps): Pro
             },
         });
 
-        console.log(await response.json());
+        return response
     } catch (error) {
       console.log(error);
     }
   }
 
-export const postData = async <T>(uri: string, body: T): Promise<Response | undefined> => {
+export const postData = async <T>(uri: string, body: T, accessToken: string): Promise<Response | undefined> => {
   try {
     const response = await fetch(`${BASE_URL}/${uri}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        "Accept-Language": "ru-RU",
+        "Authorization": `Bearer ${accessToken}`
       },
       body: JSON.stringify(body)
     });

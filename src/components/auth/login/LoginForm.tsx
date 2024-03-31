@@ -92,9 +92,7 @@ const LoginForm = () => {
             variant="login"
             size="login"
           >
-            {
-              isPending ? "Отправка..." : "Войти"
-            }
+            {isPending ? "Отправка..." : "Войти"}
           </Button>
         </form>
       </Form>

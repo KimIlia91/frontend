@@ -1,45 +1,25 @@
+import { getUsers } from "@/actions/getUsers";
 import { auth } from "@/auth";
-import User from "@/components/user/User";
-import IUser from "@/types/models/IUser";
-import { fetchData } from "@/utils/fetchData";
+import UserTables from "@/components/user/UserTables";
 
-const UsersPage = async() => {
+const UsersPage = async () => {
   const session = await auth();
   let data = undefined;
 
   if (session?.user.isAdmin) {
-    data = await fetchData<IUser>({
-      uri: "user", 
-      method: "GET", 
-      accessToken: session?.user.accessToken,
-    });
+    data = await getUsers()
   }
+
   return (
-    data &&
-    <section className='text-center'>
-      <table className='min-w-[500px] mx-auto'>
-        <thead>
-          <tr>
-            <th>firstName</th>
-            <th>lastName</th>
-            <th>surname</th>
-            <th>email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(user => (
-            <User 
-              id={user.id}
-              firstName={user.firstName}
-              lastName={user.lastName}
-              surname={user.surname}
-              email={user.email}
-            />
-          ))}
-        </tbody>
-      </table>
-    </section>
-  )
-}
+    data && (
+      <section className='flex flex-col items-center justify-center mx-auto max-w-4xl h-full'>
+        <div className="flex flex-col items-start">
+          <UserTables data={data} session={session} />
+        </div>
+      </section>
+    )
+  );
+};
+
 
 export default UsersPage;
