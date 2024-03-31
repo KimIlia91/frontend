@@ -15,8 +15,7 @@ const ProjectItem = async({ project }: { project: Project | undefined }) => {
         {project.name}
       </h3>
       <div className="absolute w-full h-10 bottom-0 left-0 flex justify-between items-center p-7 z-20">
-        {
-          session?.user?.isAdmin ?
+        {session?.user?.isAdmin ?
           <DeleteProjectBtn id={project.id} accessToken={session?.user?.accessToken} /> : null
         }
         <div className='flex flex-col items-start'>
