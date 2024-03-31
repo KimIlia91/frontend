@@ -1,17 +1,7 @@
 import { auth } from "@/auth";
+import User from "@/components/user/User";
 import IUser from "@/types/models/IUser";
 import { fetchData } from "@/utils/fetchData";
-
-const User = ({id, firstName, lastName, surname, email}: IUser) => {
-  return (
-    <tr>
-      <td>{firstName}</td>
-      <td>{lastName}</td>
-      <td>{surname}</td>
-      <td>{email}</td>
-    </tr>
-  )
-}
 
 const UsersPage = async() => {
   const session = await auth();
