@@ -28,3 +28,19 @@ export const RegisterSchema = z.object({
         message: 'Минимальное количество символов 6'
     }),
 })
+
+export const CreateProjectSchema = z.object({
+    name: z.string()
+        .min(1, {message: "Обязательное поле"})
+        .max(255, {message: "Максимальное количество символов 255"}),
+    customerCompany: z.string()
+        .min(1, {message: "Обязательное поле"})
+        .max(255, {message: "Максимальное количество символов 255"}),
+    comapnyExecuter: z.string()
+        .min(1, {message: "Обязательное поле"})
+        .max(255, {message: "Максимальное количество символов 255"}),
+    startDate: z.date(),
+    endDate: z.date(),
+    priority: z.string(),
+    managerId: z.string(),
+})

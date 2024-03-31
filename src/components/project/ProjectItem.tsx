@@ -2,12 +2,15 @@ import Image from 'next/image'
 import { Card } from '@/components/ui/card'
 import Project from '@/types/models/ProjectModel'
 import { getDate } from '@/utils/dateHelper'
-import { auth } from '@/auth';
 import DeleteProjectBtn from './DeleteProjectBtn';
+import { Session } from 'next-auth';
 
-const ProjectItem = async({ project }: { project: Project | undefined }) => {
-  const session = await auth();
+interface ProjectItemProps {
+  session: Session;
+  project: Project;
+}
 
+const ProjectItem = ({ project, session }: ProjectItemProps) => {
   return (
     project &&
     <Card className='relative w-[340px] sm:w-[370px] h-[200px] border-2 border-black rounded-2xl p-6 overflow-hidden z-10'>

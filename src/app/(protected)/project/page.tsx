@@ -1,4 +1,4 @@
-import { getProjects } from '@/actions/getProjects';
+import { getProjects, getProjectsOfUser } from '@/actions/getProjects';
 import { auth } from '@/auth';
 import ProjectList from '@/components/project/ProjectList';
 
@@ -8,12 +8,14 @@ const PorjectsPage = async() => {
 
   if (session?.user.isAdmin) {
     data = await getProjects()
+  } else {
+    data = await getProjectsOfUser()
   }
 
   return (
-    data &&
+    data && session &&
     <section className='flex justify-center items-center'>
-      <ProjectList projects={data}/>
+      <ProjectList projects={data} session={session} />
     </section>
   )
 }

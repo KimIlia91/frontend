@@ -1,6 +1,5 @@
 'use client';
 
-import { MouseEvent } from 'react';
 import Image from 'next/image';
 import { deleteData } from '@/utils/fetchData';
 

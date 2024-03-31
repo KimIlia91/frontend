@@ -15,3 +15,15 @@ export const getProjects = async () => {
 
     return data
 }
+
+export const getProjectsOfUser = async () => {
+    const session = await auth()
+
+    const data = await fetchData<Project>({
+        uri: "project/user", 
+        method: "GET", 
+        accessToken: session?.user.accessToken,
+    });
+
+    return data
+}
